@@ -1,0 +1,30 @@
+#startPage{
+    width: 1000px;
+    height: 530px;
+    border-radius: 5px;
+    background-image: url("bgImg/startPage.png");
+    background-size: 1000px 530px;
+    position: relative;
+
+}
+
+.hide{
+    display: none;
+}
+
+#startBtn{
+    
+    background: none;
+    border: none;
+    position: absolute;
+    top: 375px;
+    left: 650px;
+    cursor: pointer;
+}
+#startBtn img{
+    width: 250px;
+}
+
+#startBtn img:hover{
+    width: 290px;
+}

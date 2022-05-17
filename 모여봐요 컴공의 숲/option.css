@@ -1,0 +1,132 @@
+:root{
+    /* 레벨 페이지 크기*/
+    --level-page-width: 1000px;
+    --level-page-height: 530px;
+
+    /* 공 이미지 반지름 */
+    --ball-radius: 30px;
+
+    /* 옵션 팝업창  */
+    --opt-box-width:500px;
+    --opt-box-height:300px;
+
+    --opt-con-padding:20px;
+    
+    /* 옵션 콘텐츠 별 제목 너비 */
+    --opt-text-width:80px;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+/* 배경음악 태그 */
+#bg-audio{
+  
+}
+
+.hide{
+    display: none;
+}
+
+#option-hider{
+    position: absolute;
+    top:calc(var(--level-page-height)/2 - var(--opt-box-height)/2);
+    left:calc(var(--level-page-width)/2 - var(--opt-box-width)/2);
+}
+
+#option{
+    background-color:white;
+    width:var(--opt-box-width);
+    /* height:var(--opt-box-height); */
+    padding-bottom: 30px;
+    /* position: absolute;
+    top:30px;
+    left:50px; */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid black;
+    border-radius: 10px;
+
+}
+
+#opt-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: var(--opt-box-width);
+
+    position: relative;
+   
+    
+}
+
+#opt-title{
+ 
+}
+
+#delOption{
+    display: block;
+    width:20px;
+    position: absolute;
+    top: 22px;
+    left: calc(var(--opt-box-width) - 35px);
+
+}
+.opt-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: calc(var(--opt-box-width) - var(--opt-con-padding));
+}
+
+.opt-text{
+
+    width: var(--opt-text-width);
+    height:calc(var(--opt-box-height)/3.5);
+    margin-right: 30px;
+    text-align: center;
+    line-height:calc(var(--opt-box-height)/3.5);
+
+}
+
+.opt-contents{
+    width:calc(var(--opt-text-width)*3 );
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.colorBox{
+    padding:2px;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorBar{
+    border:1px solid black;
+    width:70px;
+    padding: 0;
+    margin: 0;
+}
+
+.ballImg{
+    display: block;
+    width:var(--ball-radius);
+    margin: 0px 15px 0px 15px
+}
+
+.songBtn{
+    border: 1px solid black;
+    margin: 0px 10px 0px 10px
+}

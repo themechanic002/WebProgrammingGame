@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="comForest.css"> <!-- 공용css -->
+    <link rel="stylesheet" href="startPage.css"> <!-- 시작화면css -->
+    <link rel="stylesheet" href="chSelectPage.css"> <!-- 캐릭터선택css -->
+    <link rel="stylesheet" href="levSelectPage.css"> <!-- 레벨선택css -->
+    <link rel="stylesheet" href="option.css"> <!-- 옵션팝업css -->
+    <link rel="stylesheet" href="gameover.css"> <!-- 게임오버css -->
+    <link rel="stylesheet" href="endPage.css"> <!-- 게임엔딩css -->
+
+    <!-- js -->
+    <script defer src="startPage.js"></script>
+    <script defer src="chSelectPage.js"></script>
+    <script defer src="levSelectPage.js"></script>
+    <script defer src="option.js"></script>
+    <script defer src="endPage.js"></script>
+    <script defer src="comForest.js"></script>
+</head>
+<body>
+    
+	<audio id='bg-audio'src="audio/music1.mp3" autoplay loop="true"></audio>
+    
+    <div id="containAll">
+        <div id="innerContainer">
+            <button class="audio hide" onclick="playMusic(this)"><img src="icon/mute.png"  alt="음소거"></button>
+            <button class="audio hide" onclick="stopMusic(this)"><img src="icon/musicOn.png"  alt="소리켜기"></button>
+        
+            
+                <!-- 시작화면 -->
+            <div id="startPageContainer">
+                <div id="startPage">
+                    <button id="startBtn" onclick="startBtnListener()"><img src="icon/startBtn.png" alt="시작하기"> </button>
+
+                </div>
+            </div>
+
+
+
+            <!-- 캐릭터 선택화면 -->
+            <div id="chcontainer" class="hide">
+                <div id="slide">
+                    <div id="image">
+                        <h1>캐릭터를 선택하세요</h1>
+                        <div id="charImgs">
+                            <img class="charSelectImg" src="img/charimg1.png" onclick="changenum1();" id="char1"   >
+                            <img class="charSelectImg" src="img/charimg2.png" onclick="changenum2();" id="char2"  >
+                            <img class="charSelectImg" src="img/charimg3.png" onclick="changenum3();" id="char3"  >
+                        </div>   
+
+                    </div>
+
+                    <div id="next">
+                            <button id="nextstep" onclick = "clickNextBtn()"> <img src="icon/nextBtn.png" alt=""></button>
+                    </div>
+                    
+                </div>
+        </div>
+
+
+
+        <!-- 레벨선택 페이지 및 옵션창 -->
+            <div id="levP-hider" class="hide">
+                <div id="levPage">
+
+                    <div id="optionBtnContainer">
+                        <button id="optionBtn"><img src="icon/setting.png" alt="option"
+                            onclick="showOptionPage(this)"></button>
+                    </div>
+
+                    <button id="backBtn" onclick="goBack()"><img src="icon/back.png" alt="뒤로가기"></button>
+
+
+                    <div id="levContainer">
+                        <div class="level" id="lev1" onclick="checkLevel(this)" data-lev="1">Level 1</div>
+                        <div class="level" id="lev2" onclick="checkLevel(this)" data-lev="2">Level 2</div>
+                        <div class="level" id="lev3" onclick="checkLevel(this)" data-lev="3">Level 3</div>
+                    </div>
+
+                    <!-- 옵션 -->
+                    <div id="option-hider" class="hide">
+                        
+                        <div id="option">
+                            
+                            <div id="opt-header">                        
+                                <h3 id="opt-title">Option</h3>
+                                <button><img id="delOption" src="img/xbutton.png" alt="X"></button>
+                            </div>
+
+                            <!-- 색상 팔레트 -->
+                            <div class="opt-container">
+                                <div class="opt-text">색상</div>
+                                
+                                <div class="opt-contents">
+                                    <button class="colorBox">
+                                        <div class="colorBar" style="background-color:green;" >1</div>
+                                        <div class="colorBar">2</div>
+                                        <div class="colorBar">3</div>
+                                        <div class="colorBar">4</div>
+                                    </button>           
+                                </div>                        
+                            </div>
+
+                            <!-- 공 -->
+                            <div class="opt-container">
+                                <div class="opt-text">공</div>                        
+                    
+                                <div class="opt-contents">                            
+                                    <div class="ball-container">
+                                        <img class="ballImg" src="img/chrome.png">
+                                    </div>                                
+                                </div>           
+                            </div>
+
+                            <!-- 배경음악 -->
+                            <div class="opt-container">           
+                                <div class="opt-text">배경음악</div>            
+                                <div class="opt-contents">
+                                        <button class="songBtn">SONG1</button>
+                                </div>    
+                            </div> 
+
+                        </div>
+            
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!--  게임화면 -->
+            <div id="mainP-hider" class="hide">
+                <div id="mainGamePage">
+
+                    <!-- div로 감쌈 -->
+                    <div id="canvas-container">
+                        <canvas id="myCanvas" width="700px" height="530px"></canvas>
+                        <div id="printBoxText" class="hide" >print!</div>
+
+                        <div id="coffeestain1" class= "hide">
+                            <img src="img/stain.png" id="coffee1" width="450" height="152">         
+                        </div>
+                        <div id="coffeestain2" class= "hide">
+                            <img src="img/stain.png" id="coffee2" width="450" height="152"> 
+                        </div>
+                    </div>
+                    
+                    <div id="gameInfo">
+                        <div id="level" class='infoChild'>Level 1</div>
+                        
+                        <div id="chProfile"><img src="img/charimg1.png" alt="프로필" id="cimg"></div>
+                        
+                        <div id="scoreBox" class='infoChild' >
+                            <div class="infoText">현재점수/목표점수</div>
+                            <div id=score class='infoChild infoContent'> 0/0</div>
+                        </div>
+
+                        <div id="leftTimeBox" class='infoChild'>
+                            <div class="infoText">남은 시간</div>
+                            <div id="gametime" class='infoChild infoContent'>0초</div>
+                        </div>
+
+                        <div id="itemUIBox" class='infoChild'>
+                            <div class="infoText">아이템</div>
+                            <div id="itemUI" class='infoChild infoContent'>
+                                <img id="coffeeUI" class="hide" src="img/item_coffee.png">
+                                <img id="drinkUI" class="hide" src="img/item_drink.png">
+                                <img id="errorUI" class="hide" src="img/item_error.png">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div id="gameOver-hider" class="hide">
+                <div id = "gameoverbox" >
+                    <div class = "button1">
+                        <button id = "btn1" onclick="menuBtnListener()" > 
+                        <!-- 캐릭터 선택 함수 없어서 일단 스타트 리스너로 해놓음 -->
+                        <img src = "icon/menu.png" alt = "초기화면에서 재시작"></button>
+                        
+                    </div>
+                    <div class = "button2">
+                        <button id = "btn2" onclick="restartBtnListener()" > 
+                        <!-- 캐릭터 선택 함수 없어서 일단 스타트 리스너로 해놓음 -->
+                        <img src = "icon/restart.png" alt = "레벨에서 재시작"></button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="gameClean-hider" class="hide">
+                <div id="gameClearBox">
+
+                </div>
+            </div>
+
+            <div id="gameEnd-hider" class="hide">
+                <div id = "gameEnding">
+                    <div class = "button3">
+                        <button id ="btn3" onclick ="menuBtnListener()">
+                        <img src = "icon/menu.png" alt = "초기화면에서 재시작"></button>
+                        <button id="btn4" onclick ="goToStart()">
+                        <img src="icon/gotostart.png" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

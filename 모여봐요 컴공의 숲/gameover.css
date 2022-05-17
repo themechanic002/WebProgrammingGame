@@ -1,0 +1,41 @@
+/* 게임오버 관련 */
+#gameoverbox{
+    width: 1000px; 
+    height: 530px; 
+    background-size:1000px 530px; 
+    border-radius: 5px;
+    position: relative;
+}
+
+.text{text-align: center;}
+#btn1{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 420px;
+    left: 250px;
+    cursor: pointer;
+}
+#btn2{
+    background: none;
+    border: none;
+    position: absolute;
+    top: 420px;
+    left: 600px;    
+    cursor: pointer;
+}
+
+#btn1 img{
+    width: 150px;
+}
+#btn2 img{
+    width: 150px;
+}
+
+#btn1 img:hover{
+    width: 180px;
+}
+
+#btn2 img:hover{
+    width: 180px;
+}

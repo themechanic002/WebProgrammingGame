@@ -1,0 +1,8 @@
+#gameEnding{
+    width:1000px;
+	height:530px;
+    background-image: url("bgImg/endBg.png");
+    position: relative;
+    background-size: 1000px 530px;
+    border-radius: 5px;
+}

@@ -1,0 +1,103 @@
+:root{
+    /* 레벨 div 관련*/
+    --level-width: 230px;
+    --level-height:400px;
+    --option-btn-width:50px;
+}
+
+/* 레벨 div 관련*/
+#levPageContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#levPage{
+    width: 1000px;
+    height: 530px;
+    border-radius: 5px;
+    position: relative;
+    background-image: url("bgImg/levelBgTp.jpg");
+    background-size: 1000px 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#optionBtn{
+    display: block;
+    border-radius: 5px;
+    width: var(--option-btn-width);
+    height: var(--option-btn-width);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    background-color: #b2bec3;
+}
+
+
+#optionBtn img{ 
+    display: block;
+    width: calc(var(--option-btn-width) - 10px);
+    height: calc(var(--option-btn-width) - 10px);
+    cursor: pointer;
+}
+#optionBtn:hover{
+    background-color: gray;
+}
+
+#backBtn{
+    position: absolute;
+    background-color: #6ab04c;
+    width: 80px;
+    height: 55px;
+    border-radius: 7px;
+    top:30px;
+    left: 885px;
+}
+
+#backBtn:hover{
+    background-color: #467531;
+}
+
+#backBtn img{
+    width: 50px;
+
+}
+
+#levContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.level{
+    width:var(--level-width);
+    height: var(--level-height);
+    margin:20px 10px 30px 10px;
+    border-radius: 30px;
+
+    text-align: center;
+    line-height: var(--level-height);
+    font-size: 30px;
+    font-weight: bold;
+    color:black;
+    cursor: pointer;
+}
+
+.level:hover{
+    width: calc(var(--level-width) + 10px);
+    height: calc(var(--level-height) + 10px);
+}
+
+#lev1{ background-image: url("bgImg/morning.jpg"); }
+#lev2{  background-image: url("bgImg/afternoon.jpeg"); }
+#lev3{  background-image: url("bgImg/night.jpg"); }
